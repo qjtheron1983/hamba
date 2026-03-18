@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<!-- build: 2026-03-18-v24 -->
+<!-- build: 2026-03-18-v25 -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -178,7 +178,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
 @keyframes questPulse{0%,100%{background:var(--red)}50%{background:#a00028}}
 @keyframes goldGlow{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:var(--shadow),0 0 20px rgba(255,215,0,.5)}}
 
-/* ═══ AUTH ═══ */
+/*  AUTH  */
 .auth-wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(var(--safe-top)+24px) 20px calc(24px + var(--safe-bot));
   background:#fff;background-image:repeating-conic-gradient(from 0deg at 50% 120%,#e8f4f8 0deg,#e8f4f8 2deg,#fff 2deg,#fff 4deg);}
 .auth-logo{text-align:center;margin-bottom:28px;}
@@ -190,13 +190,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
 .auth-tab:last-child{border-right:none;}
 .auth-tab.active{background:var(--teal);color:#fff;}
 
-/* ═══ WHO SCREEN ═══ */
+/*  WHO SCREEN  */
 .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px;}
 .who-card{background:#fff;border:4px solid var(--ink);padding:24px 12px;text-align:center;cursor:pointer;box-shadow:var(--shadow);transition:transform .1s,box-shadow .1s;position:relative;overflow:hidden;}
 .who-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink);}
 .who-card:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink);}
 
-/* ═══ PIN ═══ */
+/*  PIN  */
 .pin-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:24px;}
 .pin-box{width:100%;max-width:320px;text-align:center;}
 .pin-av{font-size:56px;margin-bottom:8px;}
@@ -210,7 +210,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
 .pin-k{background:#fff;color:var(--ink);border:3px solid var(--ink);padding:15px 0;font-family:var(--hero);font-size:26px;letter-spacing:1px;cursor:pointer;box-shadow:var(--shadow);transition:all .1s;}
 .pin-k:active{transform:translate(4px,4px);box-shadow:0 0 0;background:var(--red);color:#fff;}
 
-/* ═══ PARENT APP ═══ */
+/*  PARENT APP  */
 #v-parent-app{flex-direction:column;}
 #p-topbar{background:var(--ink);padding:calc(var(--safe-top)+10px) 16px 0;flex-shrink:0;}
 #p-topbar-row1{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
@@ -273,7 +273,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
 .expiry-bar{height:4px;background:#eee;border:1px solid var(--ink);margin-top:6px;overflow:hidden;}
 .expiry-fill{height:100%;transition:width .5s;}
 
-/* ═══ CHILD APP ═══ */
+/*  CHILD APP  */
 #v-child-app{flex-direction:column;}
 #c-hud{
   background:var(--teal);
@@ -422,79 +422,98 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
 <body>
 <div id="app">
 
-<!-- ═══ LOADING ═══ -->
+<!--  LOADING  -->
 <div class="view active" id="v-loading">
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:16px;">
     <div style="filter:drop-shadow(0 8px 20px rgba(0,0,0,.5));animation:pulse 2s ease-in-out infinite;">
-      <svg width="150" height="170" viewBox="0 0 150 170" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="rg1" x1="20%" y1="0%" x2="80%" y2="100%">
-            <stop offset="0%" stop-color="#ff2244"/>
-            <stop offset="45%" stop-color="#cc0033"/>
-            <stop offset="100%" stop-color="#7a001a"/>
-          </linearGradient>
-          <linearGradient id="gg1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#fff176"/>
-            <stop offset="40%" stop-color="#ffd700"/>
-            <stop offset="100%" stop-color="#f9a800"/>
-          </linearGradient>
-          <linearGradient id="sh1" x1="0%" y1="0%" x2="70%" y2="100%">
-            <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
-            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-          </linearGradient>
-        </defs>
-        <path d="M75 6 L140 32 L140 98 Q140 150 75 168 Q10 150 10 98 L10 32 Z" fill="#0d0d0d"/>
-        <path d="M75 11 L135 35 L135 98 Q135 145 75 162 Q15 145 15 98 L15 35 Z" fill="url(#rg1)"/>
-        <path d="M15 35 L75 15 L135 35 L135 53 L75 37 L15 53 Z" fill="url(#gg1)" stroke="#0d0d0d" stroke-width="1.5"/>
-        <path d="M15 80 L75 65 L135 80 L135 96 L75 81 L15 96 Z" fill="url(#gg1)" stroke="#0d0d0d" stroke-width="1.5"/>
-        <path d="M75 11 L15 35 L15 80 L75 65 L75 37 Z" fill="url(#sh1)"/>
-        <text x="75" y="56" text-anchor="middle" font-family="Bangers,cursive" font-size="24" fill="#ffd700" stroke="#0d0d0d" stroke-width="2" stroke-linejoin="round" paint-order="stroke" letter-spacing="4">HAMBA</text>
-        <text x="40" y="116" text-anchor="middle" font-size="10" fill="#ffd700" stroke="#0d0d0d" stroke-width="1" paint-order="stroke">&#9733;</text>
-        <text x="110" y="116" text-anchor="middle" font-size="10" fill="#ffd700" stroke="#0d0d0d" stroke-width="1" paint-order="stroke">&#9733;</text>
-        <text x="75" y="113" text-anchor="middle" font-family="Bangers,cursive" font-size="13" fill="#ffd700" stroke="#0d0d0d" stroke-width="1.5" stroke-linejoin="round" paint-order="stroke" letter-spacing="2">BE LEGENDARY</text>
-        <text x="75" y="129" text-anchor="middle" font-family="Bangers,cursive" font-size="13" fill="#ffd700" stroke="#0d0d0d" stroke-width="1.5" stroke-linejoin="round" paint-order="stroke" 
-        <path d="M62 149 L75 163 L88 149" fill="none" stroke="url(#gg1)" stroke-width="3" stroke-linecap="round"/>
-      </svg>
+      <svg width="160" height="192" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sg160" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3355"/>
+      <stop offset="100%" stop-color="#8a0020"/>
+    </linearGradient>
+    <linearGradient id="gg160" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe566"/>
+      <stop offset="100%" stop-color="#f9a800"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer black shield -->
+  <path d="M100 8 L186 38 L186 128 Q186 196 100 224 Q14 196 14 128 L14 38 Z" fill="#0d0d0d"/>
+  <!-- Red shield body -->
+  <path d="M100 14 L180 42 L180 128 Q180 190 100 217 Q20 190 20 128 L20 42 Z" fill="url(#sg160)"/>
+  <!-- Top gold band -->
+  <path d="M20 42 L100 20 L180 42 L180 62 L100 44 L20 62 Z" fill="url(#gg160)"/>
+  <!-- Bottom gold band -->
+  <path d="M20 96 L100 80 L180 96 L180 116 L100 100 L20 116 Z" fill="url(#gg160)"/>
+  <!-- Shine -->
+  <path d="M100 14 L20 42 L20 96 L100 80 L100 44 Z" fill="rgba(255,255,255,0.15)"/>
+  <!-- HAMBA text - centered between top and first chevron -->
+  <text x="100" y="58" text-anchor="middle" dominant-baseline="middle"
+    font-family="Bangers,cursive" font-size="32" letter-spacing="6"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="2" paint-order="stroke">HAMBA</text>
+  <!-- BE LEGENDARY - centered between two chevrons -->
+  <text x="100" y="88" text-anchor="middle" dominant-baseline="middle"
+    font-family="Bangers,cursive" font-size="13" letter-spacing="2"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="1" paint-order="stroke">BE LEGENDARY</text>
+  <!-- Stars flanking BE LEGENDARY -->
+  <text x="32" y="88" text-anchor="middle" dominant-baseline="middle" font-size="10"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="0.8" paint-order="stroke">&#9733;</text>
+  <text x="168" y="88" text-anchor="middle" dominant-baseline="middle" font-size="10"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="0.8" paint-order="stroke">&#9733;</text>
+  <!-- Bottom section - empty / clean -->
+  <!-- Gold tip -->
+  <path d="M84 200 L100 218 L116 200" fill="none" stroke="url(#gg160)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
     </div>
     <div style="font-family:'Bangers',cursive;font-size:40px;color:#fff;-webkit-text-stroke:2px #0d0d0d;text-shadow:3px 3px 0 #0d0d0d;letter-spacing:4px;">HAMBA</div>
     <div style="background:var(--gold);color:var(--ink);font-family:'Bangers',cursive;font-size:13px;letter-spacing:3px;padding:5px 16px;border:3px solid var(--ink);text-transform:uppercase;">Be Legendary</div>
-    <div style="color:rgba(255,255,255,.4);font-size:10px;font-family:monospace;">v24</div>
+    <div style="color:rgba(255,255,255,.4);font-size:10px;font-family:monospace;">v25</div>
   </div>
 </div>
 
-<!-- ═══ AUTH ═══ -->
+<!--  AUTH  -->
 <div class="view" id="v-auth">
   <div class="scroll">
     <div class="auth-wrap">
       <div class="auth-logo">
         <div style="filter:drop-shadow(3px 3px 0 #0d0d0d);display:inline-block;">
-          <svg width="90" height="110" viewBox="0 0 150 190" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100" height="120" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="rg3" x1="20%" y1="0%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#ff2244"/>
-      <stop offset="45%" stop-color="#cc0033"/>
-      <stop offset="100%" stop-color="#7a001a"/>
+    <linearGradient id="sg100" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3355"/>
+      <stop offset="100%" stop-color="#8a0020"/>
     </linearGradient>
-    <linearGradient id="gg3" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#fff176"/>
-      <stop offset="40%" stop-color="#ffd700"/>
+    <linearGradient id="gg100" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe566"/>
       <stop offset="100%" stop-color="#f9a800"/>
     </linearGradient>
-    <linearGradient id="sh3" x1="0%" y1="0%" x2="65%" y2="100%">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.42)"/>
-      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-    </linearGradient>
   </defs>
-  <path d="M75 6 L140 32 L140 98 Q140 152 75 172 Q10 152 10 98 L10 32 Z" fill="#0d0d0d"/>
-  <path d="M75 11 L135 35 L135 98 Q135 148 75 167 Q15 148 15 98 L15 35 Z" fill="url(#rg3)"/>
-  <path d="M15 35 L75 15 L135 35 L135 53 L75 37 L15 53 Z" fill="url(#gg3)" stroke="#0d0d0d" stroke-width="1.5"/>
-  <path d="M15 80 L75 65 L135 80 L135 96 L75 81 L15 96 Z" fill="url(#gg3)" stroke="#0d0d0d" stroke-width="1.5"/>
-  <path d="M75 11 L15 35 L15 80 L75 65 L75 37 Z" fill="url(#sh3)"/>
-  <text x="75" y="51" text-anchor="middle" font-family="Bangers,cursive" font-size="30" fill="#ffd700" stroke="#0d0d0d" stroke-width="2.5" stroke-linejoin="round" paint-order="stroke" letter-spacing="6">HAMBA</text>
-  <text x="38" y="122" text-anchor="middle" font-size="9" fill="#ffd700" stroke="#0d0d0d" stroke-width="0.8" paint-order="stroke">&#9733;</text>
-  <text x="112" y="122" text-anchor="middle" font-size="9" fill="#ffd700" stroke="#0d0d0d" stroke-width="0.8" paint-order="stroke">&#9733;</text>
-  <text x="75" y="118" text-anchor="middle" font-family="Bangers,cursive" font-size="13" fill="#ffd700" stroke="#0d0d0d" stroke-width="1.5" stroke-linejoin="round" paint-order="stroke" letter-spacing="2">BE LEGENDARY</text>
-  <path d="M60 154 L75 170 L90 154" fill="none" stroke="url(#gg3)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Outer black shield -->
+  <path d="M100 8 L186 38 L186 128 Q186 196 100 224 Q14 196 14 128 L14 38 Z" fill="#0d0d0d"/>
+  <!-- Red shield body -->
+  <path d="M100 14 L180 42 L180 128 Q180 190 100 217 Q20 190 20 128 L20 42 Z" fill="url(#sg100)"/>
+  <!-- Top gold band -->
+  <path d="M20 42 L100 20 L180 42 L180 62 L100 44 L20 62 Z" fill="url(#gg100)"/>
+  <!-- Bottom gold band -->
+  <path d="M20 96 L100 80 L180 96 L180 116 L100 100 L20 116 Z" fill="url(#gg100)"/>
+  <!-- Shine -->
+  <path d="M100 14 L20 42 L20 96 L100 80 L100 44 Z" fill="rgba(255,255,255,0.15)"/>
+  <!-- HAMBA text - centered between top and first chevron -->
+  <text x="100" y="58" text-anchor="middle" dominant-baseline="middle"
+    font-family="Bangers,cursive" font-size="32" letter-spacing="6"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="2" paint-order="stroke">HAMBA</text>
+  <!-- BE LEGENDARY - centered between two chevrons -->
+  <text x="100" y="88" text-anchor="middle" dominant-baseline="middle"
+    font-family="Bangers,cursive" font-size="13" letter-spacing="2"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="1" paint-order="stroke">BE LEGENDARY</text>
+  <!-- Stars flanking BE LEGENDARY -->
+  <text x="32" y="88" text-anchor="middle" dominant-baseline="middle" font-size="10"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="0.8" paint-order="stroke">&#9733;</text>
+  <text x="168" y="88" text-anchor="middle" dominant-baseline="middle" font-size="10"
+    fill="#ffd700" stroke="#0d0d0d" stroke-width="0.8" paint-order="stroke">&#9733;</text>
+  <!-- Bottom section - empty / clean -->
+  <!-- Gold tip -->
+  <path d="M84 200 L100 218 L116 200" fill="none" stroke="url(#gg100)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
         </div>
         <div class="auth-title">HAMBA</div>
@@ -534,7 +553,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
   </div>
 </div>
 
-<!-- ═══ WHO ═══ -->
+<!--  WHO  -->
 <div class="view" id="v-who">
   <div class="topbar">
     <div>
@@ -548,7 +567,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
   </div>
 </div>
 
-<!-- ═══ PIN ═══ -->
+<!--  PIN  -->
 <div class="view" id="v-pin">
   <div class="topbar">
     <div class="topbar-title" id="pin-header">Enter PIN</div>
@@ -583,7 +602,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
   </div>
 </div>
 
-<!-- ═══ PARENT APP ═══ -->
+<!--  PARENT APP  -->
 <div class="view" id="v-parent-app">
   <div id="p-topbar">
     <div id="p-topbar-row1">
@@ -632,7 +651,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
   </div>
 </div>
 
-<!-- ═══ CHILD APP ═══ -->
+<!--  CHILD APP  -->
 <div class="view" id="v-child-app">
   <div id="c-hud"><div class="c-hud-inner" id="c-hud-inner"></div></div>
   <div id="c-scroll">
@@ -652,7 +671,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
 <!-- Hidden legacy refs -->
 <div style="display:none;"><div id="tab-home"></div><div id="tab-tasks"></div><div id="tab-lb"></div><div id="pending-count"></div><div id="weekly-info"></div><div id="weekly-reset-label"></div></div>
 
-<!-- ═══ SHEETS ═══ -->
+<!--  SHEETS  -->
 <!-- Add Task -->
 <div class="sheet-ov" id="s-add-task" onclick="sheetBg(event,'s-add-task')">
   <div class="sheet">
@@ -824,9 +843,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════════════════
+// 
 // CONSTANTS
-// ══════════════════════════════════════════════════
+// 
 const AVATARS=['😊','😎','🦊','🐱','🐶','🦁','🐸','🐼','🦄','🐙','🦋','⭐','🔥','🎯','🚀','🎮','🌈','🍀','💎','🎸'];
 const TASK_EMOJIS=['🛏️','🍽️','📚','🧹','🐕','🌱','🧺','🚿','🎵','🎨','🏃','🚲','🎯','⭐','🔥','💪','🧠','🎮','🍎','🧩'];
 const REWARD_EMOJIS=['🎁','🍦','📱','🎮','🎬','🏖️','🍕','🎨','🏆','🌟','🎉','🍫','🎠','🛍️','🎲','🚀'];
@@ -842,9 +861,9 @@ const ACHIEVEMENTS=[
   {id:'pts1000',icon:'👑',name:'Points King',req:m=>m.points>=1000},
 ];
 
-// ══════════════════════════════════════════════════
+// 
 // STATE
-// ══════════════════════════════════════════════════
+// 
 let bp, familyId, familyData, me, meId, unsub;
 let pinTarget, pinEntry='';
 let selTaskEmoji='⭐', selRewardEmoji='🎁', selAvAdd=AVATARS[0], selAvEdit=AVATARS[0];
@@ -853,9 +872,9 @@ let taskSubFilter='active', lbMode='alltime';
 let editTaskId=null, pendingIssueRewardId=null, pendingReceivedIssuedId=null;
 let pendingApproveId=null;
 
-// ══════════════════════════════════════════════════
+// 
 // INIT
-// ══════════════════════════════════════════════════
+// 
 function waitBP(cb,n=0){
   if(window.BP){cb(window.BP);return;}
   if(n>200){show('v-auth');return;}
@@ -932,9 +951,9 @@ function refreshViews(){
   if(me.role==='child'&&document.getElementById('v-child-app').classList.contains('active')) renderChildApp();
 }
 
-// ══════════════════════════════════════════════════
+// 
 // HELPERS
-// ══════════════════════════════════════════════════
+// 
 function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');}
 function vv(id){return document.getElementById(id)?.value||'';}
 function getLevel(pts){let lv=LEVELS[0],idx=0;LEVELS.forEach((l,i)=>{if(pts>=l.min){lv=l;idx=i;}});return{...lv,num:idx+1};}
@@ -950,9 +969,9 @@ function confetti(){const cols=['#ffd700','#e8003d','#00b4d8','#06d6a0','#7209b7
 function buildEmojiRow(cid,list,getter,setter){const el=document.getElementById(cid);if(!el)return;el.innerHTML=list.map(e=>`<div class="e-opt${getter()===e?' sel':''}" onclick="(${setter.toString()})('${e}');buildEmojiRow('${cid}',${JSON.stringify(list)},${getter.toString()},${setter.toString()})">${e}</div>`).join('');}
 function buildAvGrid(cid,prefix){const el=document.getElementById(cid);if(!el)return;const cur=prefix==='am'?selAvAdd:selAvEdit;el.innerHTML=AVATARS.map(a=>`<div class="av-opt${a===cur?' sel':''}" onclick="${prefix==='am'?'selAvAdd':'selAvEdit'}='${a}';buildAvGrid('${cid}','${prefix}')">${a}</div>`).join('');}
 
-// ══════════════════════════════════════════════════
+// 
 // AUTH
-// ══════════════════════════════════════════════════
+// 
 function authTab(tab,btn){
   document.querySelectorAll('.auth-tab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -1030,9 +1049,9 @@ async function doSignOut(){
   show('v-auth');
 }
 
-// ══════════════════════════════════════════════════
+// 
 // WHO / PIN
-// ══════════════════════════════════════════════════
+// 
 function renderWho(){
   document.getElementById('who-family-name').textContent=familyData?.name||'Our Family';
   const grid=document.getElementById('who-grid');grid.innerHTML='';
@@ -1067,9 +1086,9 @@ function checkPin(){
   }
 }
 
-// ══════════════════════════════════════════════════
+// 
 // PARENT COMMAND CENTER
-// ══════════════════════════════════════════════════
+// 
 function renderParentApp(){
   document.getElementById('p-family-label').textContent=familyData.name||'My Family';
   renderParentDash();
@@ -1216,9 +1235,9 @@ function renderApprovals(){
   }).join('');
 }
 
-// ══════════════════════════════════════════════════
+// 
 // TASKS
-// ══════════════════════════════════════════════════
+// 
 function renderTasks(){
   if(!familyData||me?.role!=='parent')return;
   const el=document.getElementById('tasks-list');if(!el)return;
@@ -1401,9 +1420,9 @@ async function markDone(id){
   }
 }
 
-// ══════════════════════════════════════════════════
+// 
 // TEMPLATES
-// ══════════════════════════════════════════════════
+// 
 function renderTemplates(){
   const el=document.getElementById('tasks-list');if(!el)return;
   const tmpls=Object.entries(familyData.templates||{});
@@ -1460,9 +1479,9 @@ function assignTemplate(id){
   openSheet('s-add-task');
 }
 
-// ══════════════════════════════════════════════════
+// 
 // REWARDS
-// ══════════════════════════════════════════════════
+// 
 function renderRewards(){
   const el=document.getElementById('rewards-content');if(!el)return;
   if(me.role==='parent') renderParentRewards(el);
@@ -1558,9 +1577,9 @@ function updateRewardsDot(){
   const dot=document.getElementById('rewards-dot');if(dot)dot.style.display=count?'':'none';
 }
 
-// ══════════════════════════════════════════════════
+// 
 // LEADERBOARD
-// ══════════════════════════════════════════════════
+// 
 function renderLeaderboard(){
   const el=document.getElementById('c-tab-ranks');if(!el)return;
   const children=Object.entries(familyData?.members||{}).filter(([,m])=>m.role==='child');
@@ -1584,9 +1603,9 @@ function renderLeaderboard(){
   el.innerHTML=h;
 }
 
-// ══════════════════════════════════════════════════
+// 
 // CHILD APP
-// ══════════════════════════════════════════════════
+// 
 function renderChildApp(){
   if(!me||!familyData)return;
   me=familyData.members?.[meId]||me;
@@ -1792,14 +1811,14 @@ function cTab(tab,btn){
   if(tab==='profile')renderChildProfile();
 }
 
-// ══════════════════════════════════════════════════
+// 
 // PROFILE
-// ══════════════════════════════════════════════════
+// 
 function renderProfile(){
   const el=document.getElementById('profile-content');if(!el)return;
   const isParent=me?.role==='parent';
   const plan=familyData?.settings?.plan||'free';
-  const planBadge=plan==='pro' ? '<b style="color:#06d6a0;margin-left:6px;font-size:12px;">PRO</b>' : '<b style="color:#e8003d;margin-left:6px;font-size:12px;cursor:pointer;" onclick="openSheet(this.getAttribute(\"data-s\"))" data-s="s-upgrade">FREE &#8212; UPGRADE</b>';
+  const planBadge = isPro() ? " [PRO]" : " [FREE]";
   const members=Object.entries(familyData.members||{}).map(([id,m])=>{
     const av=m.avatarUrl?`<img src="${m.avatarUrl}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:3px solid var(--ink);flex-shrink:0;"/>`:`<div class="avatar">${m.avatar}</div>`;
     return `<div class="child-row row-between" style="margin-bottom:8px;background:#fff;border:3px solid var(--ink);box-shadow:var(--shadow);padding:12px 14px;">
@@ -1854,7 +1873,7 @@ function renderProfile(){
         <div class="field"><label>Confirm PIN</label><input id="conf-pin" type="password" inputmode="numeric" maxlength="4" placeholder="&#8226;&#8226;&#8226;&#8226;"/></div>
         <button class="btn btn-primary" onclick="saveParentPin()">Save PIN</button>
       </div>`:''}
-    <div style="font-size:13px;color:var(--text2);margin-bottom:12px;">Family: <b style="color:var(--ink);">${familyData.name}</b> ${planBadge}</div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:12px;">Family: <b style="color:var(--ink);">${familyData.name} ${planBadge}</b></div>
     <button class="btn btn-ghost" onclick="doSignOut()">Sign Out</button>
     <div style="height:16px;"></div>`;
 }
@@ -1897,9 +1916,9 @@ async function saveProfile(){
 }
 
 
-// ══════════════════════════════════════════════════
+// 
 // FREEMIUM GATING
-// ══════════════════════════════════════════════════
+// 
 function isPro() {
   return familyData?.settings?.plan === 'pro';
 }
@@ -1968,9 +1987,9 @@ async function addMember(){
   }
 }
 
-// ══════════════════════════════════════════════════
+// 
 // AVATAR UPLOAD
-// ══════════════════════════════════════════════════
+// 
 function handleAvatarUpload(e){
   const file=e.target.files[0];if(!file)return;
   if(file.size>500000)return toast('Photo too large (max 500KB)');
@@ -2020,9 +2039,9 @@ function clearAvPhoto(){
   document.getElementById('ep-photo-input').value='';
 }
 
-// ══════════════════════════════════════════════════
+// 
 // JOIN CODE
-// ══════════════════════════════════════════════════
+// 
 async function generateJoinCode(){
   const arr=new Uint8Array(6);crypto.getRandomValues(arr);
   const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -2041,9 +2060,9 @@ async function copyCode(code){
   catch{toast('Code: '+code);}
 }
 
-// ══════════════════════════════════════════════════
+// 
 // BADGES
-// ══════════════════════════════════════════════════
+// 
 async function checkBadges(memberId,ch){
   if(!ch.unlockedBadges)ch.unlockedBadges={};
   const updates={};
@@ -2056,9 +2075,9 @@ async function checkBadges(memberId,ch){
   if(Object.keys(updates).length) await bp.dbUpdate('families/'+familyId+'/members/'+memberId,updates).catch(()=>{});
 }
 
-// ══════════════════════════════════════════════════
+// 
 // WEEKLY RESET
-// ══════════════════════════════════════════════════
+// 
 async function checkWeeklyReset(){
   if(me?.role!=='parent')return;
   const ws=familyData?.settings?.weeklyReset;
@@ -2081,15 +2100,14 @@ async function checkWeeklyReset(){
 
 function nextMonday(){const d=new Date();d.setDate(d.getDate()+(8-d.getDay())%7||7);d.setHours(0,0,0,0);return d.getTime();}
 
-// ══════════════════════════════════════════════════
+// 
 // INSTALL
-// ══════════════════════════════════════════════════
+// 
 async function triggerInstall(){
   if(window._installPrompt){window._installPrompt.prompt();window._installPrompt=null;}
   else openSheet('s-install');
 }
 
-═══════════════════════
 function renderHome(){}
 function switchTab(){}
 function renderTasks_old(){}
