@@ -1,8 +1,8 @@
 {
-  "name": "Brownie Points",
-  "short_name": "Brownie",
-  "description": "Family task & reward tracker",
-  "start_url": "/",
+  "name": "Hamba",
+  "short_name": "Hamba",
+  "description": "Hamba \u2014 Be Legendary. SA family task & reward app.",
+  "start_url": "/hamba/app.html",
   "display": "standalone",
   "background_color": "#00b4d8",
   "theme_color": "#00b4d8",
@@ -25,5 +25,6 @@
       "sizes": "180x180",
       "type": "image/png"
     }
-  ]
+  ],
+  "scope": "/hamba/"
 }
